@@ -38,7 +38,7 @@ resource "aws_security_group_rule" "ecs_vrising_intra_egress_rule_1" {
   protocol          = "tcp"
   from_port         = 2049
   to_port           = 2049
-  source_security_group_id = aws_security_group.ecs_vrising.id
+  source_security_group_id = aws_security_group.efs_vrising.id
 }
 
 resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_1" {
