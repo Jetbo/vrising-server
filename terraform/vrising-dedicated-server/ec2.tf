@@ -7,26 +7,38 @@ resource "aws_lb" "network" {
 }
 
 resource "aws_lb_target_group" "fifteen" {
-  name        = local.vrising_dedicated_server
+  name        = "${local.vrising_dedicated_server}-fifteen"
   port        = 2015
   protocol    = "UDP"
   target_type = "ip"
   vpc_id      = aws_vpc.this.id
 
   health_check {
-    enabled             = false
+    enabled             = true
+    interval            = 30
+    path                = "/"
+    port                = "8000"
+    protocol            = "HTTP"
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
   }
 }
 
 resource "aws_lb_target_group" "sixteen" {
-  name        = local.vrising_dedicated_server
+  name        = "${local.vrising_dedicated_server}-sixteen"
   port        = 2015
   protocol    = "UDP"
   target_type = "ip"
   vpc_id      = aws_vpc.this.id
 
   health_check {
-    enabled             = false
+    enabled             = true
+    interval            = 30
+    path                = "/"
+    port                = "8000"
+    protocol            = "HTTP"
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
   }
 }
 

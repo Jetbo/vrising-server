@@ -1,0 +1,23 @@
+{
+  "name": "health_check",
+  "image": "python:3.10.4-slim-bullseye",
+  "command": [
+    "python3",
+    "-m",
+    "http.server",
+    "-d",
+    "/home"
+  ],
+  "cpu": 50,
+  "memoryReservation": 100,
+  "essential": true,
+  "privileged": false,
+  "portMappings": [
+    {
+      "containerPort": 8000,
+      "hostPort": 8000,
+      "protocol": "tcp"
+    }
+  ]
+}
+

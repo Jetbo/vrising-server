@@ -41,7 +41,8 @@ resource "aws_ecs_task_definition" "this" {
           memory_reservation = var.memory_reservation
           region = data.aws_region.current.name
         }
-      ))
+      )),
+      jsondecode(file("${path.module}/container_definitions/health_check.json"))
     ]
   )
 

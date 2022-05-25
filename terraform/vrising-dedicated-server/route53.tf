@@ -7,6 +7,7 @@ resource "aws_route53_record" "nameservers" {
   name    = var.route53.zone_name
   type    = "NS"
   records = var.route53.name_server_records
+  ttl = 172800
 }
 
 resource "aws_route53_record" "nlb" {
