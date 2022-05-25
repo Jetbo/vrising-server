@@ -14,7 +14,7 @@ resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_1" {
   protocol          = "udp"
   from_port         = 27015
   to_port           = 27015
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/16"]
 }
 
 resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_2" {
@@ -24,8 +24,19 @@ resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_2" {
   protocol          = "udp"
   from_port         = 27016
   to_port           = 27016
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/16"]
 }
+
+resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_3" {
+  security_group_id = aws_security_group.ecs_vrising.id
+  description       = "Health Check"
+  type              = "ingress"
+  protocol          = "tcp"
+  from_port         = 8000
+  to_port           = 8000
+  cidr_blocks       = ["10.0.0.0/16"]
+}
+
 
 resource "aws_security_group_rule" "ecs_vrising_exo_egress_rule_1" {
   security_group_id = aws_security_group.ecs_vrising.id

@@ -18,6 +18,14 @@
       "hostPort": 8000,
       "protocol": "tcp"
     }
-  ]
+  ],
+  "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+      "awslogs-group": "/aws/ecs/health_check",
+      "awslogs-region": "us-west-2",
+      "awslogs-stream-prefix": "python"
+    }
+  }
 }
 
