@@ -65,6 +65,7 @@ resource "aws_ecs_service" "this" {
   enable_ecs_managed_tags = true
   propagate_tags          = "TASK_DEFINITION"
   enable_execute_command  = false
+  deployment_minimum_healthy_percent = 0
 
   network_configuration {
     subnets = local.public_subnet_ids
