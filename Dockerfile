@@ -41,9 +41,8 @@ VOLUME ["/home/steam/v-rising/data"]
 EXPOSE 27015-27016/udp
 
 # Start scripts
-ENV SERVER_NAME=default
 COPY --chown=steam:steam scripts/start-server.bash .
-COPY --chown=steam:steam server_settings/ServerGameSettings.json /home/steam/v-rising/data/ServerGameSettings.json
-COPY --chown=steam:steam server_settings/ServerHostSettings.json /home/steam/v-rising/data/ServerHostSettings.json
+COPY --chown=steam:steam server_settings/ServerGameSettings.json /home/steam/v-rising/data/Settings/ServerGameSettings.json
+COPY --chown=steam:steam server_settings/ServerHostSettings.json /home/steam/v-rising/data/Settings/ServerHostSettings.json
 RUN chmod +x start-server.bash
-CMD [ "./start-server.bash", "$SERVER_NAME" ]
+CMD [ "./start-server.bash", "default" ]

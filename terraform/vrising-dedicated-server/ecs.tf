@@ -35,6 +35,10 @@ resource "aws_ecs_task_definition" "this" {
       jsondecode(templatefile(
         "${path.module}/container_definitions/vrising.tftpl",
         {
+          command_list = [
+            "bash", "-c",
+            "./start-server.bash \"${var.server_name}\""
+          ]
           cpu_reservation = var.cpu_reservation
           image_url = "${aws_ecr_repository.this.repository_url}:latest"
           memory_reservation = var.memory_reservation
