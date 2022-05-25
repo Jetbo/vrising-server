@@ -25,6 +25,12 @@
       "awslogs-stream-prefix": "wine"
     }
   },
+  "mountPoints": [
+    {
+      "containerPath": "/home/steam/v-rising",
+      "sourceVolume": "efs"
+    }
+  ],
   "environment": [
     {
       "name": "SERVER_NAME",
