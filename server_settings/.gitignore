@@ -1,0 +1,4 @@
+ServerGameSettings.json
+ServerHostSettings.json
+!defaults/ServerGameSettings.json
+!defaults/ServerHostSettings.json

@@ -1,0 +1,12 @@
+{
+  "Name": "name",
+  "Description": "description",
+  "MaxConnectedUsers": 10,
+  "MaxConnectedAdmins": 1,
+  "Password": "password",
+  "SaveName": "savename",
+  "ListOnMasterServer": false,
+  "AutoSaveCount": 10,
+  "AutoSaveInterval": 300,
+  "GameSettingsPreset": "StandardPvE"
+}
