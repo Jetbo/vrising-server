@@ -85,7 +85,7 @@ resource "aws_security_group" "efs_vrising" {
 }
 
 resource "aws_security_group_rule" "efs_vrising_intra_ingress_rule_2" {
-  security_group_id = aws_security_group.ecs_vrising.id
+  security_group_id = aws_security_group.efs_vrising.id
   description       = "NFS in"
   type              = "ingress"
   protocol          = "tcp"
