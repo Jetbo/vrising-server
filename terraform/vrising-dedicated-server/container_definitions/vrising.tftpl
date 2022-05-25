@@ -24,5 +24,11 @@
       "awslogs-region": "${region}",
       "awslogs-stream-prefix": "wine"
     }
-  }
+  },
+  "environment": [
+    {
+      "name": "SERVER_NAME",
+      "value": "${server_name}"
+    }
+  ]
 }

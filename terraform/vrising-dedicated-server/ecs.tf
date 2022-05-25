@@ -35,11 +35,12 @@ resource "aws_ecs_task_definition" "this" {
       jsondecode(templatefile(
         "${path.module}/container_definitions/vrising.tftpl",
         {
-          name = local.vrising_dedicated_server
-          image_url = "${aws_ecr_repository.this.arn}:latest"
           cpu_reservation = var.cpu_reservation
+          image_url = "${aws_ecr_repository.this.repository_url}:latest"
           memory_reservation = var.memory_reservation
+          name = local.vrising_dedicated_server
           region = data.aws_region.current.name
+          server_name = var.server_name
         }
       )),
       jsondecode(file("${path.module}/container_definitions/health_check.json"))
@@ -70,7 +71,7 @@ resource "aws_ecs_service" "this" {
     security_groups = [
       aws_security_group.ecs_vrising.id
     ]
-    assign_public_ip = false
+    assign_public_ip = true
   }
 
   load_balancer {

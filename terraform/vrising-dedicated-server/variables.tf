@@ -4,6 +4,12 @@ variable "openid_github_repo" {
   nullable = false
 }
 
+variable "server_name" {
+  description = "The Server Name to pass to the -serverName flag"
+  type = string
+  nullable = false
+}
+
 variable "cpu" {
   description = "ECS Fargate Task Definition CPU"
   type = number

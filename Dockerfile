@@ -40,8 +40,9 @@ ENV DISPLAY=:0
 RUN winecfg
 
 # Start scripts
+ENV SERVER_NAME=default
 COPY --chown=steam:steam scripts/start-server.bash .
 COPY --chown=steam:steam server_settings/ServerGameSettings.json /home/steam/v-rising/data/ServerGameSettings.json
 COPY --chown=steam:steam server_settings/ServerHostSettings.json /home/steam/v-rising/data/ServerHostSettings.json
 RUN chmod +x start-server.bash
-ENTRYPOINT [ "./start-server.bash" ]
+CMD [ "./start-server.bash", "$SERVER_NAME" ]
