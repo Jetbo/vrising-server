@@ -8,5 +8,5 @@ echo "---Installing/Updating VRising Dedicated Server---"
 
 # Run server in Wine
 echo "---Starting VRising Dedicated Server---"
-Xvfb :0 -screen 0 1024x768x16 -nolisten tcp -nolisten unix &
+Xvfb :0 -screen 0 640x480x24:32 -nolisten tcp -nolisten unix &
 wine64 /home/steam/v-rising/VRisingServer.exe -persistentDataPath "/home/steam/v-rising/data" -serverName "$1"
