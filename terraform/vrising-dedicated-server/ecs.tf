@@ -48,7 +48,7 @@ resource "aws_ecs_task_definition" "this" {
   )
 
   volume {
-    name      = "efs"
+    name = "efs"
     efs_volume_configuration {
       file_system_id = aws_efs_file_system.this.id
       root_directory = "/v-rising"

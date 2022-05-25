@@ -4,7 +4,7 @@ set -e
 
 # Install/Update server
 echo "---Installing/Updating VRising Dedicated Server---"
-# /usr/games/steamcmd +force_install_dir "/home/steam/v-rising" +login anonymous +app_update 1829350 +quit
+/usr/games/steamcmd +force_install_dir "/home/steam/v-rising" +login anonymous +app_update 1829350 +quit
 
 # Run server in Wine
 echo "---Starting VRising Dedicated Server---"
