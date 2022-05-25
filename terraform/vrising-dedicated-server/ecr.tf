@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "this" {
-  name                 = "dedicated-servers/vrising"
+  name                 = "dedicated-servers/${local.vrising}"
   image_tag_mutability = "MUTABLE"
 
   encryption_configuration {

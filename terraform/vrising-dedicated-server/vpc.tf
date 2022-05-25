@@ -18,7 +18,7 @@ resource "aws_vpc" "this" {
   instance_tenancy = "default"
 
   tags = {
-    Name = "vrising-vpc"
+    Name = "${local.vrising}-vpc"
   }
 }
 
@@ -31,7 +31,7 @@ resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.this.id
 
   tags = {
-    Name = "vrising-public-${each.key}"
+    Name = "${local.vrising}-public-${each.key}"
   }
 }
 
@@ -39,7 +39,7 @@ resource "aws_internet_gateway" "this" {
   vpc_id = aws_vpc.this.id
 
   tags = {
-    Name = "vrising-public"
+    Name = "${local.vrising}-public"
   }
 }
 

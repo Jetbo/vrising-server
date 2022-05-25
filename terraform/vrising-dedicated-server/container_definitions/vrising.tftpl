@@ -1,0 +1,28 @@
+{
+  "name": "${name}",
+  "image": "${image_url}",
+  "cpu": ${cpu_reservation},
+  "memoryReservation": ${memory_reservation},
+  "essential": true,
+  "privileged": false,
+  "portMappings": [
+    {
+      "containerPort": 27015,
+      "hostPort": 27015,
+      "protocol": "udp"
+    },
+    {
+      "containerPort": 27016,
+      "hostPort": 27016,
+      "protocol": "udp"
+    }
+  ],
+  "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+      "awslogs-group": "/aws/ecs/${name}",
+      "awslogs-region": "${region}",
+      "awslogs-stream-prefix": "wine"
+    }
+  }
+}

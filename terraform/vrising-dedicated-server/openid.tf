@@ -47,7 +47,7 @@ resource "aws_iam_policy" "github_openid" {
           "ecr:UntagResource",
           "ecr:UploadLayerPart"
         ],
-        Resource = "arn:aws:ecr:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:repository/dedicated-server/*"
+        Resource = "arn:aws:ecr:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:repository/dedicated-servers/*"
       },
       {
         Effect = "Allow",
