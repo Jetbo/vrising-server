@@ -76,13 +76,13 @@ resource "aws_ecs_service" "this" {
   load_balancer {
     target_group_arn = aws_lb_target_group.fifteen.arn
     container_name   = local.vrising_dedicated_server
-    container_port   = 2015
+    container_port   = 27015
   }
 
   load_balancer {
     target_group_arn = aws_lb_target_group.sixteen.arn
     container_name   = local.vrising_dedicated_server
-    container_port   = 2016
+    container_port   = 27016
   }
 
   deployment_circuit_breaker {

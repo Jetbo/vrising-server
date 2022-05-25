@@ -2,14 +2,6 @@ resource "aws_route53_zone" "this" {
   name = var.route53.zone_name
 }
 
-resource "aws_route53_record" "nameservers" {
-  zone_id = aws_route53_zone.this.zone_id
-  name    = var.route53.zone_name
-  type    = "NS"
-  records = var.route53.name_server_records
-  ttl = 172800
-}
-
 resource "aws_route53_record" "nlb" {
   zone_id = aws_route53_zone.this.zone_id
   name    = var.route53.network_lb_record_name

@@ -40,7 +40,6 @@ variable "route53" {
   type = object({
     zone_name = string
     network_lb_record_name = string
-    name_server_records = set(string)
   })
   nullable = false
 }

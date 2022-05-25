@@ -8,7 +8,7 @@ resource "aws_lb" "network" {
 
 resource "aws_lb_target_group" "fifteen" {
   name        = "${local.vrising_dedicated_server}-fifteen"
-  port        = 2015
+  port        = 27015
   protocol    = "UDP"
   target_type = "ip"
   vpc_id      = aws_vpc.this.id
@@ -26,7 +26,7 @@ resource "aws_lb_target_group" "fifteen" {
 
 resource "aws_lb_target_group" "sixteen" {
   name        = "${local.vrising_dedicated_server}-sixteen"
-  port        = 2015
+  port        = 27016
   protocol    = "UDP"
   target_type = "ip"
   vpc_id      = aws_vpc.this.id
@@ -44,7 +44,7 @@ resource "aws_lb_target_group" "sixteen" {
 
 resource "aws_lb_listener" "fifteen" {
   load_balancer_arn = aws_lb.network.arn
-  port              = "2015"
+  port              = "27015"
   protocol          = "UDP"
 
   default_action {
@@ -55,7 +55,7 @@ resource "aws_lb_listener" "fifteen" {
 
 resource "aws_lb_listener" "sixteen" {
   load_balancer_arn = aws_lb.network.arn
-  port              = "2016"
+  port              = "27016"
   protocol          = "UDP"
 
   default_action {

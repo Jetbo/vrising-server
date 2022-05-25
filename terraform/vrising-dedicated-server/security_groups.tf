@@ -12,8 +12,8 @@ resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_1" {
   description       = "Game Port"
   type              = "ingress"
   protocol          = "udp"
-  from_port         = 2015
-  to_port           = 2015
+  from_port         = 27015
+  to_port           = 27015
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
@@ -22,8 +22,8 @@ resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_2" {
   description       = "Query Port"
   type              = "ingress"
   protocol          = "udp"
-  from_port         = 2016
-  to_port           = 2016
+  from_port         = 27016
+  to_port           = 27016
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
