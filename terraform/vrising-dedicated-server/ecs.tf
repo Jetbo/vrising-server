@@ -52,10 +52,14 @@ resource "aws_ecs_task_definition" "this" {
   )
 
   volume {
-    name = "efs"
+    name = "world-data"
     efs_volume_configuration {
       file_system_id = aws_efs_file_system.this.id
-      root_directory = "/v-rising"
+      root_directory = "/v-rising/data"
+      transit_encryption = "ENABLED"
+      authorization_config {
+        access_point_id = aws_efs_access_point.this.id
+      }
     }
   }
 
@@ -87,17 +91,17 @@ resource "aws_ecs_service" "this" {
     assign_public_ip = true
   }
 
-  load_balancer {
-    target_group_arn = aws_lb_target_group.fifteen.arn
-    container_name   = local.vrising_dedicated_server
-    container_port   = 27015
-  }
+  # load_balancer {
+  #   target_group_arn = aws_lb_target_group.fifteen.arn
+  #   container_name   = local.vrising_dedicated_server
+  #   container_port   = 27015
+  # }
 
-  load_balancer {
-    target_group_arn = aws_lb_target_group.sixteen.arn
-    container_name   = local.vrising_dedicated_server
-    container_port   = 27016
-  }
+  # load_balancer {
+  #   target_group_arn = aws_lb_target_group.sixteen.arn
+  #   container_name   = local.vrising_dedicated_server
+  #   container_port   = 27016
+  # }
 
   deployment_circuit_breaker {
     enable   = true

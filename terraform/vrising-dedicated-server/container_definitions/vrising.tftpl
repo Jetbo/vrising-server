@@ -6,6 +6,13 @@
   "memoryReservation": ${memory_reservation},
   "essential": true,
   "privileged": false,
+  "mountPoints": [
+    {
+      "sourceVolume": "world-data",
+      "containerPath": "/home/steam/v-rising/data",
+      "readOnly": false
+    }
+  ],
   "portMappings": [
     {
       "containerPort": 27015,
@@ -26,12 +33,6 @@
       "awslogs-stream-prefix": "wine"
     }
   },
-  "mountPoints": [
-    {
-      "containerPath": "/home/steam/v-rising/data",
-      "sourceVolume": "efs"
-    }
-  ],
   "environment": [
     {
       "name": "SERVER_NAME",

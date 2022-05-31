@@ -11,26 +11,6 @@ resource "aws_security_group" "ecs_vrising" {
   }
 }
 
-resource "aws_security_group_rule" "ecs_vrising_intra_ingress_rule_1" {
-  security_group_id = aws_security_group.ecs_vrising.id
-  description       = "Game Port"
-  type              = "ingress"
-  protocol          = "udp"
-  from_port         = 27015
-  to_port           = 27015
-  cidr_blocks       = ["10.0.0.0/16"]
-}
-
-resource "aws_security_group_rule" "ecs_vrising_intra_ingress_rule_2" {
-  security_group_id = aws_security_group.ecs_vrising.id
-  description       = "Query Port"
-  type              = "ingress"
-  protocol          = "udp"
-  from_port         = 27016
-  to_port           = 27016
-  cidr_blocks       = ["10.0.0.0/16"]
-}
-
 resource "aws_security_group_rule" "ecs_vrising_intra_egress_rule_1" {
   security_group_id = aws_security_group.ecs_vrising.id
   description       = "NFS"
@@ -43,32 +23,45 @@ resource "aws_security_group_rule" "ecs_vrising_intra_egress_rule_1" {
 
 resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_1" {
   security_group_id = aws_security_group.ecs_vrising.id
-  description       = "Health Check"
+  description       = "Game Port"
   type              = "ingress"
-  protocol          = "tcp"
-  from_port         = 8000
-  to_port           = 8000
-  cidr_blocks       = ["10.0.0.0/16"]
+  protocol          = "udp"
+  from_port         = 27015
+  to_port           = 27015
+  cidr_blocks       = ["0.0.0.0/0"]
+  ipv6_cidr_blocks  = ["::/0"]
 }
+
+resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_2" {
+  security_group_id = aws_security_group.ecs_vrising.id
+  description       = "Query Port"
+  type              = "ingress"
+  protocol          = "udp"
+  from_port         = 27016
+  to_port           = 27016
+  cidr_blocks       = ["0.0.0.0/0"]
+  ipv6_cidr_blocks  = ["::/0"]
+}
+
+# resource "aws_security_group_rule" "ecs_vrising_exo_ingress_rule_1" {
+#   security_group_id = aws_security_group.ecs_vrising.id
+#   description       = "Health Check"
+#   type              = "ingress"
+#   protocol          = "tcp"
+#   from_port         = 8000
+#   to_port           = 8000
+#   cidr_blocks       = ["10.0.0.0/16"]
+# }
 
 resource "aws_security_group_rule" "ecs_vrising_exo_egress_rule_1" {
   security_group_id = aws_security_group.ecs_vrising.id
-  description       = "HTTPS out"
+  description       = "All out"
   type              = "egress"
-  protocol          = "tcp"
-  from_port         = 443
-  to_port           = 443
+  protocol          = "all"
+  from_port         = 0
+  to_port           = 0
   cidr_blocks       = ["0.0.0.0/0"]
-}
-
-resource "aws_security_group_rule" "ecs_vrising_exo_egress_rule_2" {
-  security_group_id = aws_security_group.ecs_vrising.id
-  description       = "HTTP out"
-  type              = "egress"
-  protocol          = "tcp"
-  from_port         = 80
-  to_port           = 80
-  cidr_blocks       = ["0.0.0.0/0"]
+  ipv6_cidr_blocks  = ["::/0"]
 }
 
 # ----

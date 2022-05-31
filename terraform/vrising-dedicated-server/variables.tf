@@ -41,11 +41,11 @@ variable "log_retention_in_days" {
   nullable = false
 }
 
-variable "route53" {
-  description = "Settings for Route53 entries"
-  type = object({
-    zone_name = string
-    network_lb_record_name = string
-  })
-  nullable = false
-}
+# variable "route53" {
+#   description = "Settings for Route53 entries"
+#   type = object({
+#     zone_name = string
+#     network_lb_record_name = string
+#   })
+#   nullable = false
+# }

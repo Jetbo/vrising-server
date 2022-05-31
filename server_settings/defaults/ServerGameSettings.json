@@ -1,30 +1,9 @@
 {
-  "GameModeType": 0,
+  "AnnounceSiegeWeaponSpawn": false,
+  "CanLootEnemyContainers": false,
   "CastleDamageMode": 0,
   "CastleHeartDamageMode": 0,
-  "DeathContainerPermission": 1,
-  "RelicSpawnType": 1,
-  "CanLootEnemyContainers": false,
-  "ClanSize": 10,
-  "AnnounceSiegeWeaponSpawn": false,
-  "Death_DurabilityFactorLoss": 0.0,
-  "Death_DurabilityLossFactorAsResources": 0.0,
-  "VBloodUnitSettings": [],
-  "UnlockedAchievements": [],
-  "UnlockedResearchs": [],
-  "GameTimeModifiers": {},
-  "VampireStatModifiers": {},
-  "UnitStatModifiers_Global": {},
-  "UnitStatModifiers_VBlood": {},
-  "EquipmentStatModifiers_Global": {},
   "CastleStatModifiers_Global": {
-    "PylonPenalties": {
-      "Range1": {},
-      "Range2": {},
-      "Range3": {},
-      "Range4": {},
-      "Range5": {}
-    },
     "FloorPenalties": {
       "Range1": {},
       "Range2": {},
@@ -37,12 +16,33 @@
       "Level2": {},
       "Level3": {},
       "Level4": {}
+    },
+    "PylonPenalties": {
+      "Range1": {},
+      "Range2": {},
+      "Range3": {},
+      "Range4": {},
+      "Range5": {}
     }
   },
+  "ClanSize": 10,
+  "DeathContainerPermission": 1,
+  "Death_DurabilityFactorLoss": 0,
+  "Death_DurabilityLossFactorAsResources": 0,
+  "EquipmentStatModifiers_Global": {},
+  "GameModeType": 0,
+  "GameTimeModifiers": {},
   "PlayerInteractionSettings": {
-    "VSPlayerWeekdayTime": {},
-    "VSPlayerWeekendTime": {},
     "VSCastleWeekdayTime": {},
-    "VSCastleWeekendTime": {}
-  }
+    "VSCastleWeekendTime": {},
+    "VSPlayerWeekdayTime": {},
+    "VSPlayerWeekendTime": {}
+  },
+  "RelicSpawnType": 1,
+  "UnitStatModifiers_Global": {},
+  "UnitStatModifiers_VBlood": {},
+  "UnlockedAchievements": [],
+  "UnlockedResearchs": [],
+  "VBloodUnitSettings": [],
+  "VampireStatModifiers": {}
 }
