@@ -55,7 +55,7 @@ resource "aws_ecs_task_definition" "this" {
     name = "world-data"
     efs_volume_configuration {
       file_system_id = aws_efs_file_system.this.id
-      root_directory = "/v-rising/data"
+      root_directory = "/"
       transit_encryption = "ENABLED"
       authorization_config {
         access_point_id = aws_efs_access_point.this.id
