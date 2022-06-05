@@ -11,6 +11,7 @@ cat /home/steam/.steam/steam/logs/stderr.txt # show errors, if any
 # Bootstrap settings files
 echo "---Loading VRising Dedicated Server Settings---"
 mkdir -p /home/steam/v-rising/data/Settings/
+mv /home/steam/v-rising/adminlist.txt /home/steam/v-rising/data/Settings/adminlist.txt
 mv /home/steam/v-rising/ServerGameSettings.json /home/steam/v-rising/data/Settings/ServerGameSettings.json
 mv /home/steam/v-rising/ServerHostSettings.json /home/steam/v-rising/data/Settings/ServerHostSettings.json
 
