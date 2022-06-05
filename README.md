@@ -12,7 +12,7 @@ Apparently V Rising on Debian Bullseye and AWS Fargate don't play well together,
 
 V Rising currently does not have a manual save option for dedicated servers, so expect progression loss if the server exits unexpectedly. This can be mitigated somewhat by editing `AutoSaveInterval` in `server_settings/ServerHostSettings.json` to a lower value.
 
-V Rising multiplayer Direct Connect does not support DNS resolution. This means you can't assign a domain name to your server like `vrising.mydomain.com:27015`. Instead you have to use an IPv4 address. ECS Fargate uses ephermal IP addresses, which means if the task restarts or gets replaced, the IP address needed to connect may change.
+V Rising multiplayer Direct Connect does not support DNS resolution. This means you can't assign a domain name to your server like `vrising.mydomain.com:27015`. Instead you have to set `"ListOnMasterServer": true` in `ServerHostSettings.json`OR use an IPv4 address. ECS Fargate uses ephermal IP addresses, which means if the task restarts or gets replaced, the IP address needed to connect may change.
 
 GitHub Actions is not yet implemented for Dockerfile image deploys, so you must build and push your image manually to AWS ECR.
 
