@@ -36,7 +36,8 @@ WORKDIR /home/steam
 RUN mkdir -p /home/steam/.steam/root \
   && mkdir -p /home/steam/.steam/steam \
   && mkdir -p /home/steam/v-rising/data \
-  && mkdir -p /home/steam/v-rising/dotnet
+  && mkdir -p /home/steam/v-rising/dotnet \
+  && mkdir -p /home/steam/v-rising/VRisingServer_Data/StreamingAssets/Settings
 
 # Install dotnet 6
 RUN wget https://download.visualstudio.microsoft.com/download/pr/dc930bff-ef3d-4f6f-8799-6eb60390f5b4/1efee2a8ea0180c94aff8f15eb3af981/dotnet-sdk-6.0.300-linux-x64.tar.gz \
@@ -58,7 +59,7 @@ EXPOSE 27015-27016/udp
 # Copy to data folder at runtime in case there's a volume
 COPY --chown=steam:steam server_settings/ServerGameSettings.json /home/steam/v-rising/ServerGameSettings.json
 COPY --chown=steam:steam server_settings/ServerHostSettings.json /home/steam/v-rising/ServerHostSettings.json
-COPY --chown=steam:steam server_settings/adminlist.txt /home/steam/v-rising/adminlist.txt
+COPY --chown=steam:steam server_settings/adminlist.txt /home/steam/v-rising/VRisingServer_Data/StreamingAssets/Settings/adminlist.txt
 # Start scripts
 COPY --chown=steam:steam scripts/start-server.bash .
 RUN chmod +x start-server.bash
